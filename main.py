@@ -1,16 +1,27 @@
-# This is a sample Python script.
+from fastapi import FastAPI
+import uvicorn
 
-# Press ⌃R to execute it or replace it with your code.
-# Press Double ⇧ to search everywhere for classes, files, tool windows, actions, and settings.
+app = FastAPI(title="Demo", version="0.0.1")
+
+@app.get("/")
+async def root():
+    return {
+        "tasks": {
+            "/lambda/filter": "Лямбда-функції для фільтрації",
+            "/generators/fibonacci": "Генератор Фібоначчі",
+            "/generators/primes": "Генератор простих чисел",
+            "/closures/counter": "Демонстрація замикань",
+            "/decorators/demo": "Демонстрація декораторів"
+        }
+    }
+
+@app.get('/api/test')
+async def test():
+    return {
+        "test": 25
+    }
 
 
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press ⌘F8 to toggle the breakpoint.
-
-
-# Press the green button in the gutter to run the script.
 if __name__ == '__main__':
-    print_hi('PyCharm')
+    uvicorn.run(app, host="0.0.0.0", port=8080)
 
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/

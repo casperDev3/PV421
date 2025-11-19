@@ -30,11 +30,12 @@
     "Python.main.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
+    "Shell Script.AutoComit.executor": "Run",
     "Shell Script.Refresh Libs.executor": "Run",
     "git-widget-placeholder": "rest-fastapi-pv421-1911"
   }
 }]]></component>
-  <component name="RunManager" selected="Shell Script.AutoComit">
+  <component name="RunManager" selected="Python.main">
     <configuration name="main" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="PV421" />
       <option name="ENV_FILES" value="" />

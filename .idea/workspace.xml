@@ -6,7 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="db59eb62-a165-4ded-9d73-0d9a153a229b" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -31,7 +30,9 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
     "Shell Script.Save Libs.executor": "Run",
-    "git-widget-placeholder": "introduction-pv421-1411"
+    "Shell Script.install Libs.executor": "Run",
+    "git-widget-placeholder": "introduction-pv421-1411",
+    "settings.editor.selected.configurable": "preferences.lookFeel"
   }
 }]]></component>
   <component name="RunManager" selected="Shell Script.install Libs">
@@ -89,8 +90,8 @@
     </configuration>
     <list>
       <item itemvalue="Python.main" />
-      <item itemvalue="Shell Script.save Libs" />
       <item itemvalue="Shell Script.install Libs" />
+      <item itemvalue="Shell Script.save Libs" />
     </list>
     <recent_temporary>
       <list>

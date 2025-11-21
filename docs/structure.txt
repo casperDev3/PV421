@@ -1,0 +1,32 @@
+
+├── PV421/
+│   ├── main.py
+│   ├── models/
+│   │   ├── __init__.py
+│   │   └── user.py
+│   ├── schemas/
+│   │   ├── __init__.py
+│   │   └── user.py
+│   ├── controllers/
+│   │   ├── __init__.py
+│   │   ├── users.py
+│   │   └── auth.py
+│   ├── services/
+│   │   ├── __init__.py
+│   │   ├── user_service.py
+│   │   └── auth_service.py
+│   ├── middlewares/
+│   │   ├── __init__.py
+│   │   └── logging.py
+│   ├── utils/
+│   │   ├── __init__.py
+│   │   └── id_generator.py
+│   ├── dependencies/
+│   │   ├── __init__.py
+│   │   └── auth.py
+│   └── helpers/
+    │   ├── __init__.py
+    │   ├── responses.py
+    │   └── status_codes.py
+    └── requirements.txt
+

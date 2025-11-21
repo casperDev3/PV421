@@ -1,9 +1,15 @@
 import uvicorn
 from fastapi import FastAPI
 from helpers import success_response
+from controllers import users
 
+# init app
 app = FastAPI(title="User Management API")
 
+# connect routes
+app.include_router(users.router, prefix="/api", tags=["users"])
+
+# default routes
 @app.get('/')
 def read_root():
     return success_response(

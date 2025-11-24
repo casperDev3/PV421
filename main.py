@@ -1,13 +1,14 @@
 import uvicorn
 from fastapi import FastAPI
 from helpers import success_response
-from controllers import users
+from controllers import users, auth
 
 # init app
 app = FastAPI(title="User Management API")
 
 # connect routes
 app.include_router(users.router, prefix="/api", tags=["users"])
+app.include_router(auth.router, prefix="/api", tags=["auth"])
 
 # default routes
 @app.get('/')

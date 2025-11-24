@@ -64,5 +64,5 @@ def get_user(user_id: int):
         )
     except Exception as err:
         return internal_error_response(
-            error_details=str(e)
+            error_details=str(err)
         )

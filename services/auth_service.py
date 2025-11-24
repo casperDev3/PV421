@@ -1,7 +1,9 @@
 from datetime import datetime, timedelta
 from typing import Optional
-from jose import JWTError, jwt
+# from jose import JWTError, jwt
 from passlib.context import CryptContext
+import jwt
+from jwt import PyJWTError
 
 from schemas.user import TokenData
 
@@ -41,5 +43,5 @@ class AuthService:
             if email is None:
                 return None
             return TokenData(email=email)
-        except JWTError:
+        except PyJWTError:
             return None

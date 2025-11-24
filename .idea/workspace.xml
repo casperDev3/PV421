@@ -6,8 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="db59eb62-a165-4ded-9d73-0d9a153a229b" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/auth.py" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/auth.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/services/auth_service.py" beforeDir="false" afterPath="$PROJECT_DIR$/services/auth_service.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,7 +47,7 @@
     "settings.editor.selected.configurable": "preferences.lookFeel"
   }
 }]]></component>
-  <component name="RunManager" selected="Python.main">
+  <component name="RunManager" selected="Shell Script.AutoComit">
     <configuration name="_main" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="PV421" />
       <option name="ENV_FILES" value="" />

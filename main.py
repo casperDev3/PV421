@@ -5,7 +5,7 @@ from pydantic import BaseModel, EmailStr, Field
 from passlib.context import CryptContext
 from datetime import datetime, timedelta
 from jose import JWTError, jwt
-from typing import Optional
+from typing import Optional, Any
 
 from typing_extensions import deprecated
 
@@ -53,6 +53,19 @@ class RegisterResponse(BaseModel):
     success: bool
     data: UserResponse
     meta: Meta
+
+
+class LoginUserData(BaseModel):
+    user: UserResponse
+    jwt: str
+    token_type: str
+    expires_in: Any
+
+
+class LoginResponse(BaseModel):
+    status: int
+    success: bool
+    data: LoginUserData
 
 
 class HealthResponse(BaseModel):
@@ -128,6 +141,50 @@ async def register(user: UserRegister):
     )
 
 
+@app.post("/api/login/", response_model=LoginResponse, status_code=status.HTTP_200_OK)
+async def login(user_creds: UserLogin):
+    print(user_creds)
+    user = fake_users_db.get(user_creds.username)
+    if not user or not verify_password(user_creds.password, user["hashed_password"]):
+        raise HTTPException(
+            status_code=status.HTTP_401_UNAUTHORIZED,
+            detail="Невірний логін чи пароль",
+            headers={
+                "WWW-Authenticate": "Bearer"
+            }
+        )
+
+    access_token = create_access_token(
+        data={
+            "sub": user["username"]
+        },
+        expires_delta=timedelta(minutes=ACCESS_TOKEN_EXPIRE_MINUTES)
+    )
+
+    return LoginResponse(
+        status=200,
+        success=True,
+        data=LoginUserData(
+            user=UserResponse(
+                username=user_creds.username,
+                email=user["email"],
+                message="Користувач успішно створений!"
+            ),
+            jwt=access_token,
+            token_type="bearer",
+            expires_in=ACCESS_TOKEN_EXPIRE_MINUTES
+        )
+    )
+
+# requests with jwt
+@app.get('/api/profile', response_model=UserResponse, status_code=status.HTTP_200_OK)
+async def get_profile(current_user: dict = Depends(get_current_user)):
+    return  {
+        "username": current_user["username"],
+        "email": current_user["email"],
+        "message": "Профіль успішно оновлено!"
+    }
+
 # default endpoints
 @app.get("/api/health")
 def health():
@@ -144,7 +201,7 @@ def root():
 
 
 def main():
-    uvicorn.run(app, host="0.0.0.0", port=3000)
+    uvicorn.run("main:app", host="0.0.0.0", port=3000, reload=True)
 
 
 if __name__ == '__main__':

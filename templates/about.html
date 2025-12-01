@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+<!--{% block title %}About Us - My Website{% endblock %}-->
+
+{% block content %}
+<h2 style="text-align: center; margin-top: 20px; color: #333;">About Us</h2>
+<p style="text-align: center; color: #666;">This is the about page of My Website.</p>
+<p>
+    {% if is_show %}
+        Тобі дозволено дивитись цю сторінку
+    {% else %}
+        Тобі заборонено дивитись цю сторінку
+    {% endif %}
+</p>
+<a href="/">Home</a>
+{% endblock %}

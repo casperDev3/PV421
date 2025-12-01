@@ -1,16 +1,24 @@
-# This is a sample Python script.
+from flask import Flask, render_template
+from datetime import datetime
 
-# Press ⌃R to execute it or replace it with your code.
-# Press Double ⇧ to search everywhere for classes, files, tool windows, actions, and settings.
-
-
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press ⌘F8 to toggle the breakpoint.
+app = Flask(__name__)
+app.secret_key = 'your_secret_key'
 
 
-# Press the green button in the gutter to run the script.
+@app.route('/')
+def root():
+    return render_template("index.html", current_time=datetime.now(), title="Home Page - 012")
+
+
+@app.route('/about')
+def about():
+    return render_template("about.html", current_time=datetime.now(), title="About Page - 012", is_show=False)
+
+
+@app.errorhandler(404)
+def page_not_found(e):
+    return render_template("404.html", current_time=datetime.now(), title="404 Not Found - 012"), 404
+
+
 if __name__ == '__main__':
-    print_hi('PyCharm')
-
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+    app.run(debug=True, host='0.0.0.0', port=8000)

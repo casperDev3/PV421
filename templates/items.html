@@ -1,0 +1,39 @@
+<!-- templates/items.html -->
+{% extends "base.html" %}
+
+{% block title %}Товари{% endblock %}
+
+{% block content %}
+    <h1>Список товарів</h1>
+
+    <form method="get" style="margin-bottom: 20px;">
+        <label>Фільтр за категорією:</label>
+        <select name="category" onchange="this.form.submit()">
+            <option value="">Усі</option>
+            <option value="Електроніка" {% if category == 'Електроніка' %}selected{% endif %}>Електроніка</option>
+            <option value="Література" {% if category == 'Література' %}selected{% endif %}>Література</option>
+            <option value="Продукти" {% if category == 'Продукти' %}selected{% endif %}>Продукти</option>
+        </select>
+    </form>
+
+    <div style="display: flex; gap: 20px;">
+        {% for item in items %}
+            <div style="border: 1px solid #ddd; padding: 15px; width: 200px;">
+                <h3>{{ item.name }}</h3>
+                <p>Ціна: {{ item.price }} грн</p>
+                <p>Категорія: {{ item.category }}</p>
+                <a href="{{ url_for('item_detail', item_id=item.id) }}">Детальніше</a>
+            </div>
+        {% else %}
+            <p>Товарів не знайдено</p>
+        {% endfor %}
+    </div>
+
+    <div style="margin-top: 30px;">
+        <h3>API Ендпоінти:</h3>
+        <ul>
+            <li><a href="{{ url_for('api_items') }}">/api/items</a> - JSON всіх товарів</li>
+            <li>/api/items/&lt;id&gt; - JSON конкретного товару</li>
+        </ul>
+    </div>
+{% endblock %}

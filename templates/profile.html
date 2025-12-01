@@ -1,0 +1,35 @@
+<!-- templates/profile.html -->
+{% extends "base.html" %}
+
+{% block title %}Профіль{% endblock %}
+
+{% block content %}
+    <h1>Ваш профіль</h1>
+    <p>Користувач: {{ user.username }}</p>
+    <p>Email: {{ user.email }}</p>
+    <p>Дата реєстрації: {{ user.created_at.strftime('%Y-%m-%d %H:%M:%S') }}</p>
+
+    <h3>Демонстрація різних фреймворків:</h3>
+    <div style="background: #f5f5f5; padding: 15px; border-radius: 5px;">
+        <h4>Flask:</h4>
+        <ul>
+            <li>Мікрофреймворк</li>
+            <li>Мінімалістичний дизайн</li>
+            <li>Гнучкість у виборі компонентів</li>
+        </ul>
+
+        <h4>Django:</h4>
+        <ul>
+            <li>Full-stack фреймворк</li>
+            <li>Вбудований ORM та адмінка</li>
+            <li>"Batteries included" філософія</li>
+        </ul>
+
+        <h4>FastAPI:</h4>
+        <ul>
+            <li>Сучасний фреймворк для API</li>
+            <li>Автоматична документація</li>
+            <li>Асинхронна підтримка</li>
+        </ul>
+    </div>
+{% endblock %}

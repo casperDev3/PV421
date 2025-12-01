@@ -1,0 +1,10 @@
+<!-- templates/404.html -->
+{% extends "base.html" %}
+
+{% block title %}Сторінку не знайдено{% endblock %}
+
+{% block content %}
+    <h1>404 - Сторінку не знайдено</h1>
+    <p>Вибачте, але сторінка, яку ви шукаєте, не існує.</p>
+    <p><a href="{{ url_for('home') }}">Повернутися на головну</a></p>
+{% endblock %}

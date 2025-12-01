@@ -1,0 +1,54 @@
+<!-- templates/index.html -->
+{% extends "base.html" %}
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block content %}
+    <h1>Ласкаво просимо на наш сайт!</h1>
+    <p>Поточний час: {{ current_time.strftime('%Y-%m-%d %H:%M:%S') }}</p>
+    <p>Flask - легкий та гнучкий веб-фреймворк для Python.</p>
+
+    <h2>Основні можливості Flask:</h2>
+    <ul>
+        <li>Проста маршрутизація</li>
+        <li>Підтримка шаблонів Jinja2</li>
+        <li>Робота з формами</li>
+        <li>Сесії та cookies</li>
+        <li>Обробка помилок</li>
+        <li>Підтримка REST API</li>
+    </ul>
+
+    <h2>Переваги порівняно з Django та FastAPI:</h2>
+    <table border="1" cellpadding="10">
+        <tr>
+            <th>Критерій</th>
+            <th>Flask</th>
+            <th>Django</th>
+            <th>FastAPI</th>
+        </tr>
+        <tr>
+            <td>Складність</td>
+            <td>Низька</td>
+            <td>Висока</td>
+            <td>Середня</td>
+        </tr>
+        <tr>
+            <td>Гнучкість</td>
+            <td>Висока</td>
+            <td>Низька</td>
+            <td>Середня</td>
+        </tr>
+        <tr>
+            <td>Швидкість розробки</td>
+            <td>Швидко для малих проектів</td>
+            <td>Швидко для великих проектів</td>
+            <td>Швидко для API</td>
+        </tr>
+        <tr>
+            <td>Розмір проекту</td>
+            <td>Малий/Середній</td>
+            <td>Великий</td>
+            <td>API/Мікросервіси</td>
+        </tr>
+    </table>
+{% endblock %}

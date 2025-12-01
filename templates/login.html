@@ -1,0 +1,27 @@
+<!-- templates/login.html -->
+{% extends "base.html" %}
+
+{% block title %}Вхід{% endblock %}
+
+{% block content %}
+    <h1>Вхід в систему</h1>
+    <form method="post" style="max-width: 300px;">
+        <div style="margin-bottom: 10px;">
+            <label>Ім'я користувача:</label><br>
+            <input type="text" name="username" required style="width: 100%; padding: 5px;">
+        </div>
+        <div style="margin-bottom: 10px;">
+            <label>Пароль:</label><br>
+            <input type="password" name="password" required style="width: 100%; padding: 5px;">
+        </div>
+        <button type="submit" style="padding: 10px 20px;">Увійти</button>
+    </form>
+
+    <div style="margin-top: 20px;">
+        <p>Тестові облікові записи:</p>
+        <ul>
+            <li>admin / password123</li>
+            <li>user1 / 123456</li>
+        </ul>
+    </div>
+{% endblock %}

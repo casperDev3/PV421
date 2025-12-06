@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+
+{% block title %}Продукт: {{ product.name }}{% endblock %}
+
+{% block content %}
+<h1>Деталі продукту</h1>
+
+<div style="border: 1px solid #ddd; padding: 20px; border-radius: 5px; max-width: 600px; margin: 20px 0;">
+    <h2>{{ product.name }}</h2>
+    
+    <div style="margin: 15px 0;">
+        <p><strong>ID:</strong> {{ product.id }}</p>
+        <p><strong>Опис:</strong></p>
+        <p>{{ product.description or 'Опис відсутній' }}</p>
+        <p><strong>Ціна:</strong> <span style="color: green; font-weight: bold;">{{ "%.2f"|format(product.price) }} ₴</span></p>
+        <p><strong>Кількість на складі:</strong> 
+            {% if product.quantity > 10 %}
+                <span style="color: green;">{{ product.quantity }} шт.</span>
+            {% elif product.quantity > 0 %}
+                <span style="color: orange;">{{ product.quantity }} шт.</span>
+            {% else %}
+                <span style="color: red;">{{ product.quantity }} шт. (немає в наявності)</span>
+            {% endif %}
+        </p>
+        <p><strong>Дата створення:</strong> {{ product.created_at.strftime('%d.%m.%Y %H:%M') }}</p>
+    </div>
+</div>
+
+<div style="margin-top: 20px;">
+    <a href="{{ url_for('main.edit_product', id=product.id) }}" class="btn btn-warning">Редагувати</a>
+    <a href="{{ url_for('main.list_products') }}" class="btn">Назад до списку</a>
+    
+    <form action="{{ url_for('main.delete_product', id=product.id) }}" method="POST" style="display: inline;">
+        <button type="submit" class="btn btn-danger" onclick="return confirm('Ви дійсно хочете видалити цей продукт?')">
+            Видалити продукт
+        </button>
+    </form>
+</div>
+
+<div style="margin-top: 30px; padding: 15px; background-color: #f8f9fa; border-radius: 5px;">
+    <h3>Швидкі дії:</h3>
+    <p>
+        <a href="{{ url_for('main.create_product') }}">Створити новий продукт</a> |
+        <a href="{{ url_for('main.api_products') }}">Переглянути JSON API</a>
+    </p>
+</div>
+{% endblock %}

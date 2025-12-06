@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block title %}Головна - Flask MVC{% endblock %}
+
+{% block content %}
+<h1>Ласкаво просимо до Flask MVC додатку!</h1>
+<p>Це демонстрація правильної MVC архітектури з Flask та SQLAlchemy.</p>
+
+<div style="margin-top: 30px;">
+    <h3>Функціонал:</h3>
+    <ul>
+        <li><strong>CRUD операції</strong> з продуктами</li>
+        <li><strong>REST API endpoint</strong> для отримання даних у JSON</li>
+        <li><strong>Валідація форм</strong> та обробка помилок</li>
+        <li><strong>База даних SQLite</strong> з SQLAlchemy ORM</li>
+        <li><strong>Flash повідомлення</strong> про результати операцій</li>
+    </ul>
+</div>
+
+<div style="margin-top: 30px;">
+    <h3>Технології:</h3>
+    <ul>
+        <li>Python 3.x</li>
+        <li>Flask 2.x</li>
+        <li>SQLAlchemy (Flask-SQLAlchemy)</li>
+        <li>HTML5 + CSS3</li>
+        <li>Jinja2 шаблонізатор</li>
+    </ul>
+</div>
+{% endblock %}

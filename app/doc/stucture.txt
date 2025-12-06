@@ -1,0 +1,17 @@
+flask_mvc_project/
+├── run.py                   # Точка входу
+├── app/
+│   ├── __init__.py         # Ініціалізація Flask додатку
+│   ├── models.py           # Моделі (M)
+│   ├── routes.py           # Маршрути/Контролери (C)
+│   ├── forms.py            # Форми (опційно)
+│   └── templates/          # Шаблони (V)
+│       ├── base.html
+│       ├── index.html
+│       └── products/
+│           ├── list.html
+│           ├── create.html
+│           └── edit.html
+├── instance/
+│   └── database.db         # База даних (створиться автоматично)
+└── requirements.txt

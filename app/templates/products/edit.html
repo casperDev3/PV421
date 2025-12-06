@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block title %}Редагувати продукт{% endblock %}
+
+{% block content %}
+<h1>Редагувати продукт: {{ product.name }}</h1>
+
+<form method="POST" style="max-width: 500px;">
+    <div style="margin-bottom: 15px;">
+        <label for="name">Назва продукту:</label><br>
+        <input type="text" id="name" name="name" value="{{ product.name }}" required style="width: 100%; padding: 8px;">
+    </div>
+
+    <div style="margin-bottom: 15px;">
+        <label for="description">Опис:</label><br>
+        <textarea id="description" name="description" rows="3" style="width: 100%; padding: 8px;">{{ product.description }}</textarea>
+    </div>
+
+    <div style="margin-bottom: 15px;">
+        <label for="price">Ціна:</label><br>
+        <input type="number" id="price" name="price" step="0.01" min="0" value="{{ product.price }}" required style="width: 100%; padding: 8px;">
+    </div>
+
+    <div style="margin-bottom: 15px;">
+        <label for="quantity">Кількість:</label><br>
+        <input type="number" id="quantity" name="quantity" min="0" value="{{ product.quantity }}" required style="width: 100%; padding: 8px;">
+    </div>
+
+    <button type="submit" class="btn btn-primary">Зберегти зміни</button>
+    <a href="{{ url_for('main.list_products') }}" class="btn">Скасувати</a>
+</form>
+{% endblock %}

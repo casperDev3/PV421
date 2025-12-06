@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+{% block title %}Список продуктів{% endblock %}
+
+{% block content %}
+<h1>Список продуктів</h1>
+
+<a href="{{ url_for('main.create_product') }}" class="btn btn-primary">Створити новий продукт</a>
+
+{% if products %}
+    <table style="margin-top: 20px;">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Назва</th>
+                <th>Опис</th>
+                <th>Ціна</th>
+                <th>Кількість</th>
+                <th>Дії</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for product in products %}
+            <tr>
+                <td>{{ product.id }}</td>
+                <td><strong>{{ product.name }}</strong></td>
+                <td>{{ product.description[:50] }}{% if product.description|length > 50 %}...{% endif %}</td>
+                <td>{{ "%.2f"|format(product.price) }} ₴</td>
+                <td>{{ product.quantity }}</td>
+                <td>
+                    <a href="{{ url_for('main.view_product', id=product.id) }}" class="btn btn-primary">Перегляд</a>
+                    <a href="{{ url_for('main.edit_product', id=product.id) }}" class="btn btn-warning">Редагувати</a>
+                    <form action="{{ url_for('main.delete_product', id=product.id) }}" method="POST" style="display: inline;">
+                        <button type="submit" class="btn btn-danger" onclick="return confirm('Видалити цей продукт?')">Видалити</button>
+                    </form>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% else %}
+    <p style="margin-top: 20px;">Продуктів ще немає. <a href="{{ url_for('main.create_product') }}">Створіть перший!</a></p>
+{% endif %}
+{% endblock %}

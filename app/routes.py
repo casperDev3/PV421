@@ -82,3 +82,9 @@ def delete_product(id):
         if request.method == 'DELETE':
             return jsonify({'error': str(e)}), 500
         return redirect(url_for('main.list_products'))
+
+
+# not found page
+@main_bp.app_errorhandler(404)
+def not_found_error(error):
+    return render_template('404.html'), 404

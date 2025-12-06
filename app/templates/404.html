@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+
+{% block title %}Not Found{% endblock %}
+
+{% block content %}
+<h1>Продукт не знайдено!</h1>
+<p>Це демонстрація правильної MVC архітектури з Flask та SQLAlchemy.</p>
+<a href="{{ url_for('main.index') }}">Повернутися на головну сторінку</a>
+{% endblock %}

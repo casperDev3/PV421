@@ -1,6 +1,11 @@
 from django.shortcuts import render
+from .models import Wish
 
 def wish_view(request):
-    return render(request, 'index.html')
+    wishes = Wish.objects.all()
+    return render(request, 'index.html', {
+        'test': 'Hello, World!',
+        'wishes': wishes
+    })
 
 

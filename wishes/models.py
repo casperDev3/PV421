@@ -10,7 +10,7 @@ class Wish(models.Model):
     def __str__(self):
         return self.title
 
-    def __to__dict__(self):
+    def to_dict(self):
         return {
             'id': self.id,
             'title': self.title,

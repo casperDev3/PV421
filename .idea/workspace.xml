@@ -5,11 +5,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="db59eb62-a165-4ded-9d73-0d9a153a229b" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/copilot.data.migration.agent.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/copilot.data.migration.ask2agent.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/copilot.data.migration.edit.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/news/forms.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/news/templates/news/news_confirm_delete.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/news/templates/news/news_detail.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/news/templates/news/news_form.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/news/templates/news/news_list.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/news/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wishes/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/wishes/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wishes/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/wishes/templates/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wishes/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/wishes/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -20,6 +28,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="HTML File" />
+        <option value="Python Script" />
       </list>
     </option>
   </component>
@@ -41,11 +50,12 @@
     "Python.main.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "Shell Script.create root.executor": "Run",
     "Shell Script.make migratation.executor": "Run",
     "Shell Script.migrate.executor": "Run",
     "Shell Script.run server.executor": "Run",
-    "git-widget-placeholder": "main",
+    "git-widget-placeholder": "django-intro-0812-pv421",
     "settings.editor.selected.configurable": "preferences.lookFeel"
   }
 }]]></component>
@@ -134,17 +144,6 @@
       <updated>1763116638614</updated>
     </task>
     <servers />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/core/settings.py</url>
-          <line>49</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
   <component name="github-copilot-workspace">
     <instructionFileLocations>

@@ -4,11 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="db59eb62-a165-4ded-9d73-0d9a153a229b" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/news/templates/news/news_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/news/templates/news/news_list.html" afterDir="false" />
-    </list>
+    <list default="true" id="db59eb62-a165-4ded-9d73-0d9a153a229b" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -111,10 +107,10 @@
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="Shell Script.run server" />
+      <item itemvalue="Shell Script.create root" />
       <item itemvalue="Shell Script.make migratation" />
       <item itemvalue="Shell Script.migrate" />
-      <item itemvalue="Shell Script.create root" />
+      <item itemvalue="Shell Script.run server" />
     </list>
   </component>
   <component name="SharedIndexes">

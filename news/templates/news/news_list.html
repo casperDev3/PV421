@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head><title>Новини</title></head>
+<body>
+    <h1>Всі новини 📰</h1>
+    <a href="{% url 'news_create' %}">➕ Додати новину</a>
+    <hr>
+    {% for item in news %}
+        <div style="border: 1px solid #ccc; padding: 10px; margin: 10px 0;">
+            <h3><a href="{% url 'news_detail' item.pk %}">{{ item.title }}</a></h3>
+            <small>{{ item.created_at|date:"d.m.Y H:i" }}</small>
+            <p>{{ item.content|truncatewords:20 }}</p>
+        </div>
+    {% empty %}
+        <p>Новин немає.</p>
+    {% endfor %}
+</body>
+</html>

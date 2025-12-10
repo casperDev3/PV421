@@ -5,11 +5,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="db59eb62-a165-4ded-9d73-0d9a153a229b" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/copilot.data.migration.agent.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/copilot.data.migration.ask2agent.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/copilot.data.migration.edit.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/news/forms.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/news/templates/news/news_list.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/news/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wishes/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/wishes/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/wishes/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/wishes/templates/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wishes/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/wishes/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -19,6 +25,7 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Python Script" />
         <option value="HTML File" />
       </list>
     </option>
@@ -41,15 +48,47 @@
     "Python.main.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "Shell Script.Refresh Libs.executor": "Run",
     "Shell Script.create root.executor": "Run",
     "Shell Script.make migratation.executor": "Run",
     "Shell Script.migrate.executor": "Run",
     "Shell Script.run server.executor": "Run",
-    "git-widget-placeholder": "main",
+    "git-widget-placeholder": "django-intro-0812-pv421",
     "settings.editor.selected.configurable": "preferences.lookFeel"
   }
 }]]></component>
-  <component name="RunManager" selected="Shell Script.run server">
+  <component name="RunManager" selected="Shell Script.Create AutoComit">
+    <configuration name="Create AutoComit" type="ShConfigurationType">
+      <option name="SCRIPT_TEXT" value="git add . &amp;&amp; git commit -m &quot;[auto] add code from classwork&quot; &amp;&amp; git push" />
+      <option name="INDEPENDENT_SCRIPT_PATH" value="true" />
+      <option name="SCRIPT_PATH" value="" />
+      <option name="SCRIPT_OPTIONS" value="" />
+      <option name="INDEPENDENT_SCRIPT_WORKING_DIRECTORY" value="true" />
+      <option name="SCRIPT_WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="INDEPENDENT_INTERPRETER_PATH" value="true" />
+      <option name="INTERPRETER_PATH" value="/bin/zsh" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="EXECUTE_IN_TERMINAL" value="true" />
+      <option name="EXECUTE_SCRIPT_FILE" value="false" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <configuration name="Refresh Libs" type="ShConfigurationType">
+      <option name="SCRIPT_TEXT" value="pip freeze &gt; requirements.txt" />
+      <option name="INDEPENDENT_SCRIPT_PATH" value="true" />
+      <option name="SCRIPT_PATH" value="" />
+      <option name="SCRIPT_OPTIONS" value="" />
+      <option name="INDEPENDENT_SCRIPT_WORKING_DIRECTORY" value="true" />
+      <option name="SCRIPT_WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="INDEPENDENT_INTERPRETER_PATH" value="true" />
+      <option name="INTERPRETER_PATH" value="/bin/zsh" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="EXECUTE_IN_TERMINAL" value="true" />
+      <option name="EXECUTE_SCRIPT_FILE" value="false" />
+      <envs />
+      <method v="2" />
+    </configuration>
     <configuration name="create root" type="ShConfigurationType">
       <option name="SCRIPT_TEXT" value="python manage.py createsuperuser" />
       <option name="INDEPENDENT_SCRIPT_PATH" value="true" />
@@ -112,6 +151,8 @@
     </configuration>
     <list>
       <item itemvalue="Shell Script.run server" />
+      <item itemvalue="Shell Script.Refresh Libs" />
+      <item itemvalue="Shell Script.Create AutoComit" />
       <item itemvalue="Shell Script.make migratation" />
       <item itemvalue="Shell Script.migrate" />
       <item itemvalue="Shell Script.create root" />
@@ -134,17 +175,6 @@
       <updated>1763116638614</updated>
     </task>
     <servers />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/core/settings.py</url>
-          <line>49</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
   <component name="github-copilot-workspace">
     <instructionFileLocations>

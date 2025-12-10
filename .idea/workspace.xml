@@ -5,17 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="db59eb62-a165-4ded-9d73-0d9a153a229b" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/copilot.data.migration.agent.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/copilot.data.migration.ask2agent.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/copilot.data.migration.edit.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/news/forms.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/news/templates/news/news_list.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/news/urls.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/news/templates/news/news_confirm_delete.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/news/templates/news/news_detail.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/news/templates/news/news_form.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wishes/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/wishes/templates/index.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,6 +42,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "Shell Script.Create AutoComit.executor": "Run",
     "Shell Script.Refresh Libs.executor": "Run",
     "Shell Script.create root.executor": "Run",
     "Shell Script.make migratation.executor": "Run",
@@ -58,7 +52,7 @@
     "settings.editor.selected.configurable": "preferences.lookFeel"
   }
 }]]></component>
-  <component name="RunManager" selected="Shell Script.Create AutoComit">
+  <component name="RunManager" selected="Shell Script.run server">
     <configuration name="Create AutoComit" type="ShConfigurationType">
       <option name="SCRIPT_TEXT" value="git add . &amp;&amp; git commit -m &quot;[auto] add code from classwork&quot; &amp;&amp; git push" />
       <option name="INDEPENDENT_SCRIPT_PATH" value="true" />

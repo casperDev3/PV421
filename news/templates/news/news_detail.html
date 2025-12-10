@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head><title>{{ item.title }}</title></head>
+<body>
+    <a href="{% url 'news_list' %}">⬅ Назад</a>
+    <h1>{{ item.title }}</h1>
+    <small>Опубліковано: {{ item.created_at }}</small>
+    <hr>
+    <p>{{ item.content }}</p>
+    <hr>
+    <a href="{% url 'news_edit' item.pk %}">✏️ Редагувати</a> |
+    <a href="{% url 'news_delete' item.pk %}" style="color: red;">🗑 Видалити</a>
+</body>
+</html>

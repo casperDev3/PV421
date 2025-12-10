@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+<head><title>Видалити?</title></head>
+<body>
+    <h1>Ви впевнені?</h1>
+    <p>Ви хочете видалити новину: "<strong>{{ item.title }}</strong>"?</p>
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit" style="color: red;">Так, видалити</button>
+        <a href="{% url 'news_detail' item.pk %}">Ні, назад</a>
+    </form>
+</body>
+</html>

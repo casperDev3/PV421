@@ -5,20 +5,45 @@
 {% block content %}
 <div class="main-grid">
     <div class="news-feed">
-        {% for item in news %}
-        <article class="news-item">
+        {% if news %}
+        <!-- Hero Section (First Item) -->
+        <article class="hero-news">
+            {% with item=news.0 %}
+            {% if item.image_url %}
+            <a href="{% url 'news_detail' item.pk %}">
+                <img src="{{ item.image_url }}" alt="{{ item.title }}">
+            </a>
+            {% endif %}
             <div class="meta">
-                <span>News</span> • <span>{{ item.created_at|date:"F j, Y" }}</span>
+                <span>Lead Story</span> • <span>{{ item.created_at|date:"F j, Y" }}</span>
             </div>
-            <h2><a href="{% url 'news_detail' item.pk %}">{{ item.title }}</a></h2>
-            <p>{{ item.content|truncatewords:40 }}</p>
-            <div style="margin-top: 0.5rem; text-align: right;">
-                <span style="font-family: var(--font-sans); font-size: 0.75rem; color: #888;">By Staff Writer</span>
-            </div>
+            <h1><a href="{% url 'news_detail' item.pk %}" style="text-decoration: none; color: black;">{{ item.title
+                    }}</a></h1>
+            <p class="lead-text">{{ item.content|truncatewords:60 }}</p>
+            {% endwith %}
         </article>
-        {% empty %}
+
+        <!-- Secondary Grid (Remaining Items) -->
+        <div class="secondary-news-grid">
+            {% for item in news|slice:"1:" %}
+            <article class="secondary-item">
+                {% if item.image_url %}
+                <a href="{% url 'news_detail' item.pk %}">
+                    <img src="{{ item.image_url }}" alt="{{ item.title }}">
+                </a>
+                {% endif %}
+                <div class="meta" style="font-size: 0.7rem; margin-bottom: 0.25rem;">
+                    {{ item.created_at|date:"M j" }}
+                </div>
+                <h3><a href="{% url 'news_detail' item.pk %}">{{ item.title }}</a></h3>
+                <p style="font-size: 0.9rem; color: #555; line-height: 1.4;">{{ item.content|truncatewords:20 }}</p>
+            </article>
+            {% endfor %}
+        </div>
+
+        {% else %}
         <p>No news available today.</p>
-        {% endfor %}
+        {% endif %}
     </div>
 
     <aside class="sidebar">

@@ -12,6 +12,16 @@
         </div>
     </header>
 
+    {% if item.image_url %}
+    <figure style="margin-bottom: 2rem;">
+        <img src="{{ item.image_url }}" alt="{{ item.title }}" style="width: 100%; height: auto; display: block;">
+        <figcaption
+            style="font-family: var(--font-sans); font-size: 0.85rem; color: #666; margin-top: 0.5rem; text-align: center;">
+            Abstract representation of the news topic.
+        </figcaption>
+    </figure>
+    {% endif %}
+
     <div class="article-body">
         {{ item.content|linebreaks }}
     </div>

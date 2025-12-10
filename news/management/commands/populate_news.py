@@ -44,15 +44,19 @@ class Command(BaseCommand):
         News.objects.all().delete()
 
         self.stdout.write("Creating mock news...")
-        for title in titles:
+        for i, title in enumerate(titles):
             content = random.choice(contents)
-            # Add some variation to content length
             if random.random() > 0.5:
                 content += "\n\n" + random.choice(contents)
-                
+            
+            # Use random Picsum images
+            image_id = random.randint(1, 400) # Valid IDs usually in this range
+            image_url = f"https://picsum.photos/id/{image_id}/800/500"
+
             News.objects.create(
                 title=title,
                 content=content,
+                image_url=image_url,
                 created_at=timezone.now() - timezone.timedelta(days=random.randint(0, 10))
             )
 

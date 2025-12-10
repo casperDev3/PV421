@@ -1,0 +1,294 @@
+/* NYT-inspired CSS */
+:root {
+    --primary-color: #000000;
+    --background-color: #ffffff;
+    --text-color: #121212;
+    --text-secondary: #5a5a5a;
+    --border-color: #e2e2e2;
+    --border-strong: #000000;
+
+    /* Typography */
+    --font-serif: 'Merriweather', 'Georgia', serif;
+    --font-sans: 'Inter', 'Arial', sans-serif;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: var(--font-serif);
+    background-color: var(--background-color);
+    color: var(--text-color);
+    line-height: 1.6;
+    font-size: 17px;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Typography */
+h1,
+h2,
+h3,
+h4 {
+    font-family: var(--font-serif);
+    font-weight: 700;
+    color: var(--primary-color);
+    line-height: 1.1;
+}
+
+h1 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+    letter-spacing: -0.02em;
+}
+
+h2 {
+    font-size: 1.75rem;
+    margin-bottom: 0.75rem;
+}
+
+h3 {
+    font-size: 1.25rem;
+    margin-bottom: 0.5rem;
+}
+
+/* Layout */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Navbar / Header */
+.masthead {
+    border-bottom: 1px solid var(--border-color);
+    margin-bottom: 2rem;
+    padding: 1rem 0;
+}
+
+.masthead-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: var(--font-sans);
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: var(--text-secondary);
+    margin-bottom: 1rem;
+}
+
+.logo-container {
+    text-align: center;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+.logo {
+    font-family: 'Chomsky', serif;
+    /* Fallback to serif if custom font not loaded */
+    font-size: 3.5rem;
+    font-weight: 900;
+    letter-spacing: -0.05em;
+    color: black;
+    text-decoration: none !important;
+}
+
+.nav-links {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    font-family: var(--font-sans);
+    font-size: 0.85rem;
+    border-bottom: 1px double var(--border-color);
+    border-width: 4px;
+    padding: 0.5rem 0;
+}
+
+.nav-links a {
+    color: #333;
+    font-weight: 500;
+}
+
+/* Buttons (Minimalist) */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.5rem 1rem;
+    border: 1px solid var(--border-strong);
+    background: transparent;
+    color: var(--primary-color);
+    font-family: var(--font-sans);
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.btn:hover {
+    background: var(--primary-color);
+    color: white;
+    text-decoration: none;
+}
+
+.btn-primary {
+    background: #333;
+    color: white;
+    border-color: #333;
+}
+
+.btn-primary:hover {
+    background: #000;
+}
+
+.btn-danger {
+    color: #d93025;
+    border-color: #d93025;
+}
+
+.btn-danger:hover {
+    background: #d93025;
+    color: white;
+}
+
+/* News List Layout */
+.main-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 3rem;
+    margin-top: 2rem;
+}
+
+.news-feed {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.news-item {
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.news-item .meta {
+    font-family: var(--font-sans);
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+}
+
+.news-item h2 a {
+    color: black;
+    text-decoration: none;
+}
+
+.news-item h2 a:hover {
+    color: #444;
+}
+
+.news-item p {
+    color: #333;
+    font-size: 1rem;
+    margin-top: 0.5rem;
+}
+
+.sidebar {
+    border-left: 1px solid var(--border-color);
+    padding-left: 2rem;
+}
+
+.sidebar h3 {
+    font-family: var(--font-sans);
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    margin-bottom: 1rem;
+    border-top: 1px solid black;
+    padding-top: 0.25rem;
+}
+
+/* Detail Page */
+.article-container {
+    max-width: 740px;
+    margin: 0 auto;
+}
+
+.article-header {
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.article-header h1 {
+    font-size: 2.8rem;
+    font-style: italic;
+    margin-bottom: 1rem;
+}
+
+.article-meta {
+    font-family: var(--font-sans);
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid var(--border-color);
+    border-bottom: 1px solid var(--border-color);
+    padding: 1rem 0;
+}
+
+.article-body {
+    font-size: 1.2rem;
+    line-height: 1.8;
+    color: #222;
+}
+
+.article-body p {
+    margin-bottom: 1.5rem;
+}
+
+/* Forms */
+.form-container {
+    max-width: 600px;
+    margin: 2rem auto;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+label {
+    display: block;
+    font-family: var(--font-sans);
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    font-size: 0.9rem;
+}
+
+.form-control {
+    width: 100%;
+    padding: 0.8rem;
+    font-family: var(--font-serif);
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 0;
+    /* No radius for serious look */
+}
+
+.form-control:focus {
+    outline: none;
+    border-color: black;
+}

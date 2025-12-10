@@ -1,14 +1,26 @@
-<!DOCTYPE html>
-<html>
-<head><title>{{ item.title }}</title></head>
-<body>
-    <a href="{% url 'news_list' %}">⬅ Назад</a>
-    <h1>{{ item.title }}</h1>
-    <small>Опубліковано: {{ item.created_at }}</small>
-    <hr>
-    <p>{{ item.content }}</p>
-    <hr>
-    <a href="{% url 'news_edit' item.pk %}">✏️ Редагувати</a> |
-    <a href="{% url 'news_delete' item.pk %}" style="color: red;">🗑 Видалити</a>
-</body>
-</html>
+{% extends 'base.html' %}
+
+{% block title %}{{ item.title }} - The Daily News{% endblock %}
+
+{% block content %}
+<article class="article-container">
+    <header class="article-header">
+        <h1>{{ item.title }}</h1>
+        <div class="article-meta">
+            <span>By <strong>Staff Writer</strong></span>
+            <span>{{ item.created_at|date:"F j, Y" }}</span>
+        </div>
+    </header>
+
+    <div class="article-body">
+        {{ item.content|linebreaks }}
+    </div>
+
+    <div
+        style="margin-top: 4rem; padding-top: 2rem; border-top: 1px solid black; display: flex; gap: 1rem; justify-content: center;">
+        <a href="{% url 'news_edit' item.pk %}" class="btn btn-primary">Edit Article</a>
+        <a href="{% url 'news_delete' item.pk %}" class="btn btn-danger">Delete</a>
+        <a href="{% url 'news_list' %}" class="btn">Back to Home</a>
+    </div>
+</article>
+{% endblock %}

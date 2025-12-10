@@ -1,13 +1,30 @@
-<!DOCTYPE html>
-<html>
-<head><title>{{ action }} новину</title></head>
-<body>
-    <h1>{{ action }} новину</h1>
+{% extends 'base.html' %}
+
+{% block title %}{{ action }} новину{% endblock %}
+
+{% block content %}
+<div
+    style="max-width: 600px; margin: 0 auto; background: white; padding: 2rem; border-radius: var(--radius); box-shadow: var(--shadow-sm);">
+    <h1 style="margin-bottom: 2rem;">{{ action }} новину</h1>
+
     <form method="post">
         {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit">Зберегти</button>
-        <a href="{% url 'news_list' %}">Скасувати</a>
+        {% for field in form %}
+        <div class="form-group">
+            <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+            {{ field }}
+            {% if field.errors %}
+            <div style="color: #ef4444; font-size: 0.875rem; margin-top: 0.5rem;">
+                {{ field.errors }}
+            </div>
+            {% endif %}
+        </div>
+        {% endfor %}
+
+        <div style="display: flex; gap: 1rem; margin-top: 2rem;">
+            <button type="submit" class="btn btn-primary">💾 Зберегти</button>
+            <a href="{% url 'news_list' %}" class="btn" style="background: #f1f5f9; color: #475569;">Скасувати</a>
+        </div>
     </form>
-</body>
-</html>
+</div>
+{% endblock %}

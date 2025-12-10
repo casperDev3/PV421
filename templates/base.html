@@ -1,0 +1,54 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="uk">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}The Daily News{% endblock %}</title>
+
+    <!-- Google Fonts: Merriweather (Serif) & Inter (Sans) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400&display=swap"
+        rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+
+<body>
+    <div class="container">
+        <header class="masthead">
+            <div class="masthead-top">
+                <span>{% now "l, F j, Y" %}</span>
+                <span>Today's Paper</span>
+            </div>
+            <div class="logo-container">
+                <a href="{% url 'news_list' %}" class="logo">The Daily News</a>
+            </div>
+            <nav class="nav-links">
+                <a href="{% url 'news_list' %}">World</a>
+                <a href="{% url 'news_list' %}">U.S.</a>
+                <a href="{% url 'news_list' %}">Politics</a>
+                <a href="{% url 'news_list' %}">N.Y.</a>
+                <a href="{% url 'news_list' %}">Business</a>
+                <a href="{% url 'news_list' %}">Opinion</a>
+                <a href="{% url 'news_list' %}">Tech</a>
+                <a href="{% url 'news_list' %}">Science</a>
+                <a href="{% url 'news_create' %}" style="font-weight: bold;">+ Add Article</a>
+            </nav>
+        </header>
+
+        {% block content %}
+        {% endblock %}
+
+        <footer
+            style="margin-top: 4rem; padding: 2rem 0; border-top: 1px double #ccc; border-top-width: 4px; text-align: center; font-family: var(--font-sans); font-size: 0.8rem; color: #666;">
+            &copy; {% now "Y" %} The Daily News Company. All rights reserved.
+        </footer>
+    </div>
+</body>
+
+</html>

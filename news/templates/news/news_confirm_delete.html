@@ -1,13 +1,24 @@
-<!DOCTYPE html>
-<html>
-<head><title>Видалити?</title></head>
-<body>
-    <h1>Ви впевнені?</h1>
-    <p>Ви хочете видалити новину: "<strong>{{ item.title }}</strong>"?</p>
+{% extends 'base.html' %}
+
+{% block title %}Підтвердження видалення{% endblock %}
+
+{% block content %}
+<div
+    style="max-width: 500px; margin: 4rem auto; background: white; padding: 2rem; border-radius: var(--radius); box-shadow: var(--shadow-md); text-align: center;">
+    <h1 style="color: #dc2626;">⚠️ Ви впевнені?</h1>
+    <p style="margin: 1.5rem 0; font-size: 1.1rem;">
+        Ви збираєтесь видалити новину:<br>
+        <strong>"{{ item.title }}"</strong>
+    </p>
+    <p style="color: var(--text-muted); margin-bottom: 2rem;">Цю дію неможливо відмінити.</p>
+
     <form method="post">
         {% csrf_token %}
-        <button type="submit" style="color: red;">Так, видалити</button>
-        <a href="{% url 'news_detail' item.pk %}">Ні, назад</a>
+        <div style="display: flex; gap: 1rem; justify-content: center;">
+            <button type="submit" class="btn btn-danger">🗑 Так, видалити</button>
+            <a href="{% url 'news_detail' item.pk %}" class="btn" style="background: #f1f5f9; color: #475569;">Ні, я
+                передумав</a>
+        </div>
     </form>
-</body>
-</html>
+</div>
+{% endblock %}

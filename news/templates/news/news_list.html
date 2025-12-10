@@ -17,8 +17,8 @@
             <div class="meta">
                 <span>Lead Story</span> • <span>{{ item.created_at|date:"F j, Y" }}</span>
             </div>
-            <h1><a href="{% url 'news_detail' item.pk %}" style="text-decoration: none; color: black;">{{ item.title
-                    }}</a></h1>
+            <h1><a href="{% url 'news_detail' item.pk %}" style="text-decoration: none; color: black;">
+                {{ item.title }}</a></h1>
             <p class="lead-text">{{ item.content|truncatewords:60 }}</p>
             {% endwith %}
         </article>
@@ -60,9 +60,9 @@
         <h3>In Case You Missed It</h3>
         <ul style="list-style: none; font-family: var(--font-serif); font-size: 0.95rem;">
             <li style="margin-bottom: 1rem; border-bottom: 1px solid #eee; padding-bottom: 0.5rem;"><a href="#">10 Ways
-                    to Improve Code</a></li>
+                to Improve Code</a></li>
             <li style="margin-bottom: 1rem; border-bottom: 1px solid #eee; padding-bottom: 0.5rem;"><a href="#">Django
-                    5.2 Released</a></li>
+                5.2 Released</a></li>
             <li style="margin-bottom: 1rem;"><a href="#">Best Coffee Shops for Coding</a></li>
         </ul>
     </aside>

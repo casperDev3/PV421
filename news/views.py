@@ -7,6 +7,7 @@ from .forms import NewsForm
 # 1. Create News - Crud
 def news_create(request):
     if request.method == 'POST':
+        print(request.POST)
         form = NewsForm(request.POST)
         if form.is_valid():
             form.save()

@@ -19,7 +19,7 @@ class ProductViewSet(viewsets.ModelViewSet):
 
     # pagination
     pagination_class = PageNumberPagination
-    pagination_class.page_size = 2
+    pagination_class.page_size = 10
 
 
 class ProductsSidebarViewSet(viewsets.ModelViewSet):

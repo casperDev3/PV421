@@ -1,0 +1,9 @@
+MVC - Model View Controller
+Model - Manages data and business logic (Управління даними та бізнес-логікою)
+View - Handles the display of information (Відповідає за відображення інформації)
+Controller - Manages user input and interactions (Керує введенням користувача та взаємодіями)
+
+Django MVT
+Model - Manages data and business logic (Управління даними та бізнес-логікою) - файл views.py + services.py
+View -  Handles the display of information (Відповідає за відображення інформації) - models.py + db
+Template -  Відображення нашарованого шаблону (HTML, CSS, JS) - файли в папці templates

@@ -3,6 +3,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from .models import News
 from .forms import NewsForm
 
+
 # 1. READ (List) - Список новин
 def news_list(request):
     news = News.objects.all()

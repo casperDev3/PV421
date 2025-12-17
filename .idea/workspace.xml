@@ -5,7 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="db59eb62-a165-4ded-9d73-0d9a153a229b" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/auth/urls.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/wishes/templates/base.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/auth/serializers.py" beforeDir="false" afterPath="$PROJECT_DIR$/auth/serializers.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/auth/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/auth/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/news/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/news/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wishes/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/wishes/templates/index.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,15 +47,17 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "Shell Script.auto commit.executor": "Run",
     "Shell Script.create root.executor": "Run",
     "Shell Script.make migratation.executor": "Run",
     "Shell Script.migrate.executor": "Run",
     "Shell Script.run server.executor": "Run",
+    "Shell Script.save libs.executor": "Run",
     "git-widget-placeholder": "dj-jwt-1712-pv421",
     "settings.editor.selected.configurable": "preferences.lookFeel"
   }
 }]]></component>
-  <component name="RunManager" selected="Shell Script.save libs">
+  <component name="RunManager" selected="Shell Script.run server">
     <configuration name="auto commit" type="ShConfigurationType">
       <option name="SCRIPT_TEXT" value="git add . &amp;&amp; git commit -m &quot;[AUTO] add new part code from lesson&quot; &amp;&amp; git push " />
       <option name="INDEPENDENT_SCRIPT_PATH" value="true" />

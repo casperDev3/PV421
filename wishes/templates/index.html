@@ -1,15 +1,287 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>WishList</title>
-</head>
-<body>
-<h1>Мої бажання 🚀 - {{test}}</h1>
-<p>Тут скоро буде список...</p>
-<ul>
-    {% for wish in wishes %}
-    <li>{{ wish.title }}</li>
-    {% endfor %}
-</ul>
-</body>
-</html>
+{% extends "base.html" %}
+
+{% block title %}WishList · Home{% endblock %}
+
+{% block content %}
+<style>
+  .nyt-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 40px;
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 0 20px;
+    font-family: 'Georgia', 'Times New Roman', serif;
+  }
+
+  .nyt-main-card {
+    background: white;
+    border-top: 4px solid #000;
+    padding: 40px 35px 35px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+    border-radius: 2px;
+  }
+
+  .nyt-sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  .nyt-side-card {
+    background: white;
+    border-top: 2px solid #e2e2e2;
+    padding: 30px 25px;
+    box-shadow: 0 1px 5px rgba(0,0,0,0.05);
+    border-radius: 2px;
+  }
+
+  .kicker {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-size: 0.75rem;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    color: #5f5f5f;
+    margin-bottom: 15px;
+    font-weight: 600;
+  }
+
+  .headline {
+    font-family: 'Georgia', serif;
+    font-size: 2.5rem;
+    font-weight: 700;
+    line-height: 1.1;
+    margin: 15px 0 20px;
+    color: #121212;
+    border-bottom: 1px solid #e2e2e2;
+    padding-bottom: 20px;
+  }
+
+  .lede {
+    font-size: 1.25rem;
+    line-height: 1.5;
+    color: #333;
+    margin-bottom: 35px;
+    font-family: 'Georgia', serif;
+  }
+
+  .wish-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    border-top: 1px solid #f0f0f0;
+  }
+
+  .wish-item {
+    display: flex;
+    align-items: center;
+    padding: 22px 0;
+    border-bottom: 1px solid #f0f0f0;
+    transition: background-color 0.15s ease;
+  }
+
+  .wish-item:hover {
+    background-color: #fafafa;
+  }
+
+  .wish-number {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-size: 0.9rem;
+    color: #999;
+    min-width: 60px;
+    font-weight: 500;
+  }
+
+  .wish-title {
+    font-family: 'Georgia', serif;
+    font-size: 1.125rem;
+    line-height: 1.4;
+    color: #121212;
+    margin: 0 0 5px 0;
+  }
+
+  .nyt-button {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    text-decoration: none;
+    color: #121212;
+    padding: 16px 20px;
+    border: 1.5px solid #121212;
+    border-radius: 3px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: all 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    background: white;
+    margin-bottom: 12px;
+  }
+
+  .nyt-button:hover {
+    background: #121212;
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  }
+
+  .nyt-button:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  }
+
+  .nyt-button span {
+    font-weight: 600;
+    font-size: 0.95rem;
+    letter-spacing: 0.3px;
+  }
+
+  .nyt-button code {
+    font-family: 'Courier New', monospace;
+    font-size: 0.85rem;
+    background: rgba(0,0,0,0.05);
+    padding: 4px 8px;
+    border-radius: 2px;
+    color: #555;
+  }
+
+  .nyt-button:hover code {
+    background: rgba(255,255,255,0.2);
+    color: white;
+  }
+
+  .empty-state {
+    padding: 50px 30px;
+    text-align: center;
+    border: 2px dashed #e2e2e2;
+    border-radius: 4px;
+    margin: 20px 0;
+  }
+
+  .empty-state__title {
+    font-family: 'Georgia', serif;
+    font-size: 1.5rem;
+    color: #666;
+    margin-bottom: 10px;
+  }
+
+  .empty-state__text {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    color: #888;
+    font-size: 0.95rem;
+    line-height: 1.5;
+  }
+
+  .nyt-side-heading {
+    font-family: 'Georgia', serif;
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin: 10px 0 20px;
+    color: #121212;
+  }
+
+  .nyt-tip {
+    background: #f8f8f8;
+    padding: 20px;
+    border-left: 3px solid #000;
+    font-family: 'Georgia', serif;
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #444;
+    margin-top: 10px;
+  }
+
+  @media (max-width: 900px) {
+    .nyt-grid {
+      grid-template-columns: 1fr;
+      gap: 30px;
+      padding: 0 15px;
+    }
+
+    .headline {
+      font-size: 2rem;
+    }
+
+    .nyt-main-card {
+      padding: 30px 25px;
+    }
+  }
+</style>
+
+<div class="nyt-grid">
+  <article class="nyt-main-card">
+    <div class="kicker">Моя дошка</div>
+    <h1 class="headline">Мої бажання 🚀</h1>
+    <p class="lede">
+      Чистий список без зайвого шуму. Додавай бажання — і рухайся маленькими кроками до великих змін.
+    </p>
+
+    <div class="card__body">
+      {% if wishes %}
+        <ul class="wish-list">
+          {% for wish in wishes %}
+            <li class="wish-item">
+              <div class="wish-number">№{{ forloop.counter }}</div>
+              <div>
+                <h3 class="wish-title">{{ wish.title }}</h3>
+              </div>
+            </li>
+          {% endfor %}
+        </ul>
+      {% else %}
+        <div class="empty-state">
+          <h3 class="empty-state__title">Список порожній</h3>
+          <p class="empty-state__text">
+            Почніть додавати свої бажання через адмін-панель або API.
+          </p>
+        </div>
+      {% endif %}
+    </div>
+  </article>
+
+  <aside class="nyt-sidebar">
+    <div class="nyt-side-card">
+      <div class="kicker">Швидка навігація</div>
+      <h3 class="nyt-side-heading">Перейти до</h3>
+
+      <div class="links">
+        <a class="nyt-button" href="/news/">
+          <span>Новини проекту</span>
+          <code>/news/</code>
+        </a>
+
+        <a class="nyt-button" href="/admin/">
+          <span>Адмін-панель</span>
+          <code>/admin/</code>
+        </a>
+
+        <a class="nyt-button" href="/api/">
+          <span>Корінь API</span>
+          <code>/api/</code>
+        </a>
+
+        <a class="nyt-button" href="/api/auth/register/">
+          <span>Реєстрація</span>
+          <code>/api/auth/register/</code>
+        </a>
+
+        <a class="nyt-button" href="/api/auth/token/">
+          <span>Увійти в систему</span>
+          <code>/api/auth/login/</code>
+        </a>
+
+        <a class="nyt-button" href="/api/auth/token/refresh/">
+          <span>Оновити токен</span>
+          <code>/api/auth/token/refresh/</code>
+        </a>
+      </div>
+    </div>
+
+    <div class="nyt-side-card">
+      <div class="kicker">Дизайн-підказка</div>
+      <h3 class="nyt-side-heading">Стиль The New York Times</h3>
+      <div class="nyt-tip">
+        Серіфний шрифт для заголовків, багато негативного простору,
+        тонкі роздільні лінії, чорно-біла палітра з акцентами.
+      </div>
+    </div>
+  </aside>
+</div>
+{% endblock %}

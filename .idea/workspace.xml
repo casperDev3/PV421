@@ -7,8 +7,8 @@
     <list default="true" id="db59eb62-a165-4ded-9d73-0d9a153a229b" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/products/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/products/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wishes/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/wishes/templates/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/products/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/products/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/products/serializers.py" beforeDir="false" afterPath="$PROJECT_DIR$/products/serializers.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,7 +48,7 @@
     "Shell Script.migrate.executor": "Run",
     "Shell Script.run server.executor": "Run",
     "Shell Script.save libs.executor": "Run",
-    "git-widget-placeholder": "dj-jwt-1712-pv421",
+    "git-widget-placeholder": "dj-custom-actions-drf-2012-pv421",
     "settings.editor.selected.configurable": "preferences.lookFeel"
   }
 }]]></component>

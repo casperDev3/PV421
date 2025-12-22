@@ -41,7 +41,7 @@ INSTALLED_APPS = [
     'wishes',
     'news',
     'products',
-
+    'accounts'
 ]
 
 REST_FRAMEWORK = {

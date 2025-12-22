@@ -9,7 +9,8 @@ https://docs.djangoproject.com/en/5.2/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.2/ref/settings/
 """
-
+from datetime import timedelta
+from importlib.metadata import SimplePath
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -130,3 +131,15 @@ STATICFILES_DIRS = [
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+SIMPLE_JWT = {
+    'ACCESS_TOKEN_LIFETIME': timedelta(minutes=60), # Живе 60 хвилин
+    'REFRESH_TOKEN_LIFETIME': timedelta(days=1), # Живе 1 день
+    'ROTATE_REFRESH_TOKENS': True, # Оновлення refresh токена при кожному використанні
+    'BLACKLIST_AFTER_ROTATION': True, # Додавати старі refresh токени до чорного списку
+
+    'ALGORITHM': 'HS256', # Алгоритм підпису токена
+    'SIGNING_KEY': SECRET_KEY, # Ключ підпису токена
+
+    'AUTH_HEADER_TYPES': ('Bearer',), # Тип токена в заголовку авторизації
+}

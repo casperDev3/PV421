@@ -3,9 +3,10 @@ from rest_framework import viewsets, filters
 from .models import Product
 from .serializers import ProductSerializer, ProductsSidebarSerializer
 from rest_framework.pagination import PageNumberPagination
-from rest_framework.permissions import IsAuthenticatedOrReadOnly, IsAuthenticated
+from rest_framework.permissions import IsAuthenticatedOrReadOnly, IsAuthenticated, AllowAny, IsAdminUser
 from rest_framework.decorators import action
 from rest_framework.response import Response
+from .permissions import IsManagerCanOnlyCreateOrEdit
 
 
 class ProductViewSet(viewsets.ModelViewSet):
@@ -13,7 +14,7 @@ class ProductViewSet(viewsets.ModelViewSet):
     serializer_class = ProductSerializer
 
     # permissions for CRUD operations
-    permission_classes = [IsAuthenticatedOrReadOnly]
+    permission_classes = [IsManagerCanOnlyCreateOrEdit]
 
     # Встановлюємо користувача при створенні продукту
     # BEFORE CREATE / ON CREATE

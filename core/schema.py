@@ -6,4 +6,8 @@ class Query(products.schema.Query, ObjectType):
     pass
 
 
-schema = Schema(query=Query)
+class Mutation(products.schema.Mutation, ObjectType):
+    pass
+
+
+schema = Schema(query=Query, mutation=Mutation)

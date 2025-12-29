@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
+    'graphene_django',
     'rest_framework_simplejwt',
     'wishes',
     'news',
@@ -142,4 +143,8 @@ SIMPLE_JWT = {
     'SIGNING_KEY': SECRET_KEY, # Ключ підпису токена
 
     'AUTH_HEADER_TYPES': ('Bearer',), # Тип токена в заголовку авторизації
+}
+
+GRAPHENE = {
+    'SCHEMA': 'core.schema.schema'
 }

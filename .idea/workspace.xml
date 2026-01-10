@@ -47,11 +47,11 @@
     "Shell Script.migrate.executor": "Run",
     "Shell Script.run server.executor": "Run",
     "Shell Script.save libs.executor": "Run",
-    "git-widget-placeholder": "dj-graphql-intro-2912-a1d",
+    "git-widget-placeholder": "dj-graphql-pro-1001-pv421",
     "settings.editor.selected.configurable": "preferences.lookFeel"
   }
 }]]></component>
-  <component name="RunManager" selected="Shell Script.auto commit">
+  <component name="RunManager" selected="Shell Script.run server">
     <configuration name="auto commit" type="ShConfigurationType">
       <option name="SCRIPT_TEXT" value="git add . &amp;&amp; git commit -m &quot;[AUTO] add new part code from lesson&quot; &amp;&amp; git push " />
       <option name="INDEPENDENT_SCRIPT_PATH" value="true" />

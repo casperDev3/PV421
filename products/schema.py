@@ -2,6 +2,8 @@ from graphene import List, Field, Int, ObjectType, Mutation, String, Decimal, ID
 from graphene_django import DjangoObjectType
 from .models import Product
 from django.contrib.auth.models import User
+from graphql_jwt.decorators import login_required
+
 
 # TYPES
 class UserType(DjangoObjectType):
@@ -9,10 +11,12 @@ class UserType(DjangoObjectType):
         model = User
         fields = ['id', 'username', 'email']
 
+
 class ProductType(DjangoObjectType):
     class Meta:
         model = Product
         fields = ["id", "name", "description", "price", "user", "is_available"]
+
 
 # MUTATIONS
 class CreateProductMutation(Mutation):
@@ -39,6 +43,7 @@ class CreateProductMutation(Mutation):
         new_product.save()
         return CreateProductMutation(product=new_product)
 
+
 class UpdateProductMutation(Mutation):
     class Arguments:
         id = ID(required=True)
@@ -50,11 +55,15 @@ class UpdateProductMutation(Mutation):
     product = Field(ProductType)
     ok = Boolean()
 
+    @login_required
     def mutate(self, info, id, name=None, description=None, price=None, is_available=None):
+        user = info.context.user
         try:
             product_instance = Product.objects.get(pk=id)
         except Product.DoesNotExist:
             return UpdateProductMutation(ok=False, product=None)
+        # if product_instance.user != user:
+        #     raise Exception("Ви не маєте дозволу оновлювати цей продукт!")
 
         if name is not None:
             product_instance.name = name
@@ -67,6 +76,7 @@ class UpdateProductMutation(Mutation):
 
         product_instance.save()
         return UpdateProductMutation(ok=True, product=product_instance)
+
 
 class DeleteProductMutation(Mutation):
     class Arguments:
@@ -82,10 +92,12 @@ class DeleteProductMutation(Mutation):
         except Product.DoesNotExist:
             return DeleteProductMutation(ok=False)
 
+
 class Mutation(ObjectType):
     create_product = CreateProductMutation.Field()
     update_product = UpdateProductMutation.Field()
     delete_product = DeleteProductMutation.Field()
+
 
 # QUERY
 class Query(ObjectType):
@@ -100,6 +112,3 @@ class Query(ObjectType):
             return Product.objects.get(pk=id)
         except Product.DoesNotExist:
             return None
-
-
-

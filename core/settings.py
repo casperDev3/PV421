@@ -13,6 +13,8 @@ from datetime import timedelta
 from importlib.metadata import SimplePath
 from pathlib import Path
 
+# import graphql_jwt TODO: перевірити CommandError: You must set settings.ALLOWED_HOSTS if DEBUG is False.
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -25,7 +27,9 @@ SECRET_KEY = 'django-insecure-p6y$^#id#bsji40yy8z^+n!@t*o_ooambj0w)+8z*mp)nuednf
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    "*"
+]
 
 # Application definition
 
@@ -38,6 +42,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'graphene_django',
+    'graphql_jwt',
     'rest_framework_simplejwt',
     'wishes',
     'news',
@@ -56,9 +61,9 @@ MIDDLEWARE = [
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
-    'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    "django.contrib.auth.middleware.AuthenticationMiddleware"
 ]
 
 ROOT_URLCONF = 'core.urls'
@@ -134,17 +139,25 @@ STATICFILES_DIRS = [
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 SIMPLE_JWT = {
-    'ACCESS_TOKEN_LIFETIME': timedelta(minutes=60), # Живе 60 хвилин
-    'REFRESH_TOKEN_LIFETIME': timedelta(days=1), # Живе 1 день
-    'ROTATE_REFRESH_TOKENS': True, # Оновлення refresh токена при кожному використанні
-    'BLACKLIST_AFTER_ROTATION': True, # Додавати старі refresh токени до чорного списку
+    'ACCESS_TOKEN_LIFETIME': timedelta(minutes=60),  # Живе 60 хвилин
+    'REFRESH_TOKEN_LIFETIME': timedelta(days=1),  # Живе 1 день
+    'ROTATE_REFRESH_TOKENS': True,  # Оновлення refresh токена при кожному використанні
+    'BLACKLIST_AFTER_ROTATION': True,  # Додавати старі refresh токени до чорного списку
 
-    'ALGORITHM': 'HS256', # Алгоритм підпису токена
-    'SIGNING_KEY': SECRET_KEY, # Ключ підпису токена
+    'ALGORITHM': 'HS256',  # Алгоритм підпису токена
+    'SIGNING_KEY': SECRET_KEY,  # Ключ підпису токена
 
-    'AUTH_HEADER_TYPES': ('Bearer',), # Тип токена в заголовку авторизації
+    'AUTH_HEADER_TYPES': ('Bearer',),  # Тип токена в заголовку авторизації
 }
 
 GRAPHENE = {
-    'SCHEMA': 'core.schema.schema'
+    'SCHEMA': 'core.schema.schema',
+    'MIDDLEWARE': [
+        'graphql_jwt.middleware.JSONWebTokenMiddleware',
+    ],
 }
+
+AUTHENTICATION_BACKENDS = [
+    "graphql_jwt.backends.JSONWebTokenBackend",
+    "django.contrib.auth.backends.ModelBackend",
+]

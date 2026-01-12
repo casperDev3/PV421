@@ -49,6 +49,28 @@
             &copy; {% now "Y" %} The Daily News Company. All rights reserved.
         </footer>
     </div>
+    <script>
+        const wsScheme = window.location.protocol === "https:" ? "wss" : "ws";
+        const wsPath = `${wsScheme}://${window.location.host}/ws/notifications/`;
+        const notificationSocket = new WebSocket(wsPath);
+
+        notificationSocket.onopen = function(e) {
+            console.log("WebSocket connection established.");
+        };
+
+        notificationSocket.onmessage = function(e) {
+            const data = JSON.parse(e.data);
+            console.log("New notification received:", data.message);
+            console.log("Notification Type:", data.type_notification);
+            console.log(data);
+
+        };
+
+        notificationSocket.onclose = function(e) {
+            console.log("WebSocket connection closed.");
+        };
+
+    </script>
 </body>
 
 </html>

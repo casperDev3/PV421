@@ -7,6 +7,7 @@ from rest_framework.permissions import IsAuthenticatedOrReadOnly, IsAuthenticate
 from rest_framework.decorators import action
 from rest_framework.response import Response
 from .permissions import IsManagerCanOnlyCreateOrEdit
+from notifications.signals import notify_on_product_update
 
 
 class ProductViewSet(viewsets.ModelViewSet):
@@ -25,6 +26,8 @@ class ProductViewSet(viewsets.ModelViewSet):
     # BEFORE UPDATE / ON UPDATE
     def perform_update(self, serializer):
         print("ЗАПИТ НА ОНОВЛЕННЯ ПРОДУКТУ:")
+        notify_on_product_update(sender=Product, instance=serializer.instance)
+
 
     # BEFORE DELETE / ON DELETE
     def perform_destroy(self,  instance):

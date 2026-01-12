@@ -27,7 +27,6 @@ def notify_on_new_product(sender, instance, created, **kwargs):
 # @receiver(post_save, sender=Product)
 def notify_on_product_update(sender, instance, **kwargs):
     # if not created:
-    print("TEST!")
     channel_layer = get_channel_layer()
     message = f'Product updated: {instance.name}'
 

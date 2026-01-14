@@ -3,10 +3,20 @@ from django.shortcuts import render, redirect, get_object_or_404
 from .models import News
 from .forms import NewsForm
 
+from notifications.consumers import MassMailerConsumer
+
 
 # 1. READ (List) - Список новин
 def news_list(request):
     news = News.objects.all()
+    smm = MassMailerConsumer()
+    print("test1")
+    smm.send_mass_mail_update(
+        {
+            "message": "Новини були переглянуті користувачем."
+        }
+    )
+    print("test2")
     return render(request, 'news/news_list.html', {'news': news})
 
 # 1. READ (Detail) - Деталі однієї новини

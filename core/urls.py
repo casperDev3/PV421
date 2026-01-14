@@ -19,6 +19,7 @@ urlpatterns = [
     path('', wish_view, name='wish'),
     path('admin/', admin.site.urls),
     path('news/', include('news.urls')),
+    path('mailer/', include('mailer.urls')),
 
     # api routes
     path('api/', include(router.urls)),

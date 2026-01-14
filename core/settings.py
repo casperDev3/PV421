@@ -51,6 +51,7 @@ INSTALLED_APPS = [
     'products',
     'accounts',
     'notifications',
+    'mailer',
 ]
 
 REST_FRAMEWORK = {

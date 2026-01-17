@@ -10,13 +10,11 @@ from notifications.consumers import MassMailerConsumer
 def news_list(request):
     news = News.objects.all()
     smm = MassMailerConsumer()
-    print("test1")
     smm.send_mass_mail_update(
         {
             "message": "Новини були переглянуті користувачем."
         }
     )
-    print("test2")
     return render(request, 'news/news_list.html', {'news': news})
 
 # 1. READ (Detail) - Деталі однієї новини

@@ -35,8 +35,6 @@ class NotificationConsumer(AsyncWebsocketConsumer):
 class InteractiveConsumer(AsyncWebsocketConsumer):
     async def connect(self):
         self.group_name = 'interactive_room'
-        # self.user_id = self.user_id = self.scope['url_route']['kwargs'].get('user_id', 'anon')
-        # print(self.user_id)
 
         await self.channel_layer.group_add(
             self.group_name,
@@ -78,11 +76,24 @@ class InteractiveConsumer(AsyncWebsocketConsumer):
                 "state": room_state
             }
         )
-    async def broadcast_state(self,  event):
+
+    async def broadcast_state(self, event):
         await self.send(text_data=json.dumps({
-            "type": "update",
+            "type": "sync",
             "state": event["state"]
         }))
+
+    async def broadcast_news(self, event):
+        print("test")
+        await self.send(text_data=json.dumps({
+            "type": "news_alert", # Тип для клієнта
+            "title": event['title'],
+            "message": event['message'],
+            "image": event['image']
+        }))
+
+
+
 
 class MassMailerConsumer(AsyncWebsocketConsumer):
     async def connect(self):
